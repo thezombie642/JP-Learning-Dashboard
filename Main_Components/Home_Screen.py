@@ -62,7 +62,7 @@ class StartPage(tk.Frame):
         self.webpage_btn.pack()
         self.miku_gif = MikuGif(self.controller)
         self.miku_gif.pack()
-        self.miku_gif.load('C:/Users/taunt/Downloads/miku_gif/frame_')
+        self.miku_gif.load('C:/Users/taunt/Downloads/JP-Learning-Dashboard/JP-Learning-Dashboard/Main_Components/miku_gif/frame_')
 
     def show_keyword(self):
         self.miku_gif.unload()
