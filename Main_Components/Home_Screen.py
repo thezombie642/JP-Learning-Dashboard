@@ -11,6 +11,7 @@ import urllib.request
 from PIL import Image, ImageTk
 
 import keyword_search, stroke_search, anki_create
+MIKU_DIR = 'C:/Users/taunt/Downloads/JP-Learning-Dashboard/JP-Learning-Dashboard/Main_Components/miku_gif/frame_'
 
 class JP_Learning_Main(tk.Tk):
     def __init__(self, *args, **kwargs) -> None:
@@ -35,10 +36,10 @@ class JP_Learning_Main(tk.Tk):
         self.show_frame("StartPage")
     
     def show_frame(self, page_name):
-        print(self.frames)
         self.geometry("")
         frame = self.frames[page_name]
         frame.tkraise()
+        return frame
         
 # this is basically a template class for a window setup, or "frame" as they're called in tk
 # shove your selector UI code in here
@@ -56,15 +57,15 @@ class StartPage(tk.Frame):
         self.keyword_btn = tk.Button(centered_buttons, text="Search by keyword", command = self.show_keyword, padx = 5)
         self.stroke_btn = tk.Button(centered_buttons, text="Search by stroke", command = self.show_stroke, padx = 5)
         self.anki_create_btn = tk.Button(centered_buttons, text="Create ANKI Card", command = self.create_anki, padx = 5)
-        self.webpage_btn = tk.Button(self, text="Open LOCALHOST", command=self.launch_local, padx = 5)
+        self.webpage_btn = tk.Button(centered_buttons, text="Open LOCALHOST", command= self.launch_local, padx = 5)
         self.keyword_btn.pack(side = LEFT)
         self.stroke_btn.pack(side = LEFT)
         self.anki_create_btn.pack(side = LEFT)
         self.webpage_btn.pack(side = LEFT)
-        centered_buttons.pack(side=BOTTOM)
         self.miku_gif = MikuGif(self.controller)
         self.miku_gif.pack()
-        self.miku_gif.load('C:/Users/taunt/Downloads/JP-Learning-Dashboard/JP-Learning-Dashboard/Main_Components/miku_gif/frame_')
+        self.miku_gif.load(MIKU_DIR)
+        centered_buttons.pack(side=TOP)
 
     def show_keyword(self):
         self.miku_gif.unload()

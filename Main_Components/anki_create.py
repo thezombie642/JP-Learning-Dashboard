@@ -8,10 +8,9 @@ from tkinter import messagebox
 from PIL import ImageTk, Image
 from tkinter import filedialog
 
+from gui_page import gui_page as gui_class
+
 name = "stroke_search"
 
-class create_gui(tk.Frame):
-    def __init__(self, parent, controller):
-        # gui setup- these first two lines are required
-        tk.Frame.__init__(self, parent)
-        self.controller = controller
+class create_gui(gui_class):
+    pass
