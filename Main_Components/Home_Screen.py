@@ -1,3 +1,4 @@
+# TKInter
 import tkinter as tk
 from tkinter import *
 from tkinter import font as tkfont
@@ -9,16 +10,17 @@ import urllib.request
 
 # Pillow
 from PIL import Image, ImageTk
-
 import keyword_search, stroke_search, anki_create
+
 MIKU_DIR = 'C:/Users/taunt/Downloads/JP-Learning-Dashboard/JP-Learning-Dashboard/Main_Components/miku_gif/frame_'
 
 class JP_Learning_Main(tk.Tk):
     def __init__(self, *args, **kwargs) -> None:
         tk.Tk.__init__(self, *args, **kwargs)
         self.title_font = tkfont.Font(family="Calibri", size=18, weight="bold", slant="roman")
+        self.results_font = tkfont.Font(family = 'Helvetica', size = 18, weight = 'bold')
         self.title("JP-Dashboard")
-        self.iconbitmap("chiyo.ico")
+        # self.iconbitmap("chiyo.ico")
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
         container.grid_rowconfigure(0, weight=1)

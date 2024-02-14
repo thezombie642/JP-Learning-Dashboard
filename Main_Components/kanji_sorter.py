@@ -9,7 +9,7 @@ def stroke_map(k_dict):
 def word_map(k_dict):
     key_map = {}
     for k, v in k_dict.items():
-        keyword = "NAN" if not v['meanings'] else v['meanings'][0]
+        keyword = "nan" if not v['meanings'] else v['meanings'][0].lower()
         try:
             key_map[keyword].append(k)
         except:
